@@ -1,0 +1,112 @@
+.cabecalhoPrincipal .container { /*classe pai*/
+    display: flex;
+    align-items: center; /*itens alinhados ao centro*/
+    justify-content: space-between; /*espaçamento igual para todos os elementos*/
+}
+.cabecalhoPrincipal-nav { /*classe pai do menu <a>*/
+    display: flex; /*transf essa classe em uma caixa flexivel*/
+}
+.rodapePrincipal-patrocinadores .container {
+    display: flex;
+    justify-content: space-between; /*divide o espaco entre os itens*/
+}
+.rodapePrincipal-patrocinadores-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /*dividindo o espaco em volta dos elementos*/
+    width: 70%;
+}
+.rodapePrincipal-contatoForm {
+    width: 25%;
+}
+.rodapePrincipal-contatoForm-fieldset { /*os seus filhos terão o mesmo tamanho, no caso o input e o button*/
+    display: flex;
+}
+.rodapePrincipal-navMap-list {
+    display: flex;
+    flex-direction: column; /*direcionando o flex para coluna*/
+    flex-wrap: wrap; /*quebra de coluna, vai pra proxima coluna assim que terminar a anterior*/
+    /*flex flow: column wrap - teria o mesmo efeito do direction e wrap*/
+    height: 255px;
+}
+.conteudoPrincipal-cursos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /*delimita que os itens fiquem no inicios do container*/
+}
+.conteudoPrincipal-cursos-link {
+    width: 23%;
+    margin-bottom: 1%;
+}
+.conteudoPrincipal-cursos-link:nth-child(4n) {
+    margin-right: 0;
+}
+.conteudoPrincipal-cursos-link:nth-child(4n+1) {
+    margin-left: 0;
+}
+.videoSobre .container {
+    display: flex;
+    flex-grow: 1; /*crescer*/
+    flex-shrink: 2; /*diminua 2x mais*/
+}
+.videoSobre-sobre {
+    margin-left: 3%;
+}
+/*CORRIGIDO*/
+@media (max-width: 768px){
+    .cabecalhoPrincipal-nav {
+        flex-direction: column;
+    }
+    .cabecalhoPrincipal .container {
+        display: flex;
+        flex-direction: column;
+        align-items: initial; 
+        text-align: center;
+    }
+    .conteudoPrincipal-cursos {
+        flex-direction: column;
+    }
+    .conteudoPrincipal-cursos-link {
+        width: 100%;
+    }
+    .rodapePrincipal-navMap-list {
+        height: auto;
+    }
+    .rodapePrincipal-patrocinadores .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .rodapePrincipal-contatoForm {
+        width: 100%;
+    }
+    .rodapePrincipal-patrocinadores-list {
+        margin: 0;
+        width: 100%;
+    }
+    .rodapePrincipal-contatoForm-fieldset {
+        justify-content: center;
+    }
+    .cabecalhoPrincipal-nav-link-app{
+        order: -1; /*-1 pois começa a contagem no 0*/
+    }
+    .videoSobre .container {
+        flex-direction: column;  
+        margin-right: 0 auto; 
+    }
+    .videoSobre-video {
+        flex-grow: 1; /*crescer*/
+        flex-shrink: 2; /*diminua 2x mais*/
+    }
+}
+
+/* OBSERVAÇÕES: 
+JUSTIFY-CONTENT: mexe com o eixo principal
+e o ALIGN-ITEMS mexe com o eixo cruzado (cross axis1)
+Ao mudar a direção (flex-direction), o eixo também muda
+FLEX-STRICK: colocado no filho, serve para diminuir os elementos, possui valor padrao de 1, 
+FLEX-GROW: colocado no filho, leva valor numerico, ex(1), ele pega o espaço vazio do flex, e divide pela quantidade de flex items que possui, ficam no mesmo tamanho, esticados. 
+o grow tem o 0 como padrão. 
+Atalho: flex: 1 1; o primeiro tem valor grow e o seg shrink
+FLEX-BASIS: recebe n absoluto, define largura para elementos. Basicamente um width. 
+Atalho: flex: 1 1 25%; o primeiro tem valor grow e o seg shrink, o ter é o basis; 
+*/
